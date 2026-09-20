@@ -1,0 +1,104 @@
+proxy:
+  host: 127.0.0.1
+  port: 4000
+  master_key_env: LOCALBOT_PROXY_KEY
+  mode: bridge
+
+budgets:
+  monthly_usd: 20.0
+  daily_usd: 2.0
+
+providers:
+  cloudflare:
+    enabled: true
+    account_id_env: CLOUDFLARE_ACCOUNT_ID
+    api_key_env: CLOUDFLARE_API_TOKEN
+    models:
+      - id: cloudflare-glm-47-flash
+        litellm_model: cloudflare/@cf/zai-org/glm-4.7-flash
+        input_cost_per_m: 0.06
+        output_cost_per_m: 0.40
+        extra_body:
+          rejectIfBusy: true
+          reasoning_effort: null
+          enable_thinking: false
+
+      - id: cloudflare-gpt-oss-20b
+        litellm_model: cloudflare/@cf/openai/gpt-oss-20b
+        input_cost_per_m: 0.20
+        output_cost_per_m: 0.60
+        extra_body:
+          rejectIfBusy: true
+
+  groq:
+    enabled: true
+    api_key_env: GROQ_API_KEY
+    models:
+      - id: groq-gpt-oss-20b
+        litellm_model: groq/openai/gpt-oss-20b
+        input_cost_per_m: 0.0
+        output_cost_per_m: 0.0
+
+  openrouter:
+    enabled: false
+    api_key_env: OPENROUTER_API_KEY
+    base_url: https://openrouter.ai/api/v1
+    models:
+      - id: openrouter-free
+        litellm_model: openrouter/openrouter/free
+        input_cost_per_m: 0.0
+        output_cost_per_m: 0.0
+
+  deepseek:
+    enabled: false
+    api_key_env: DEEPSEEK_API_KEY
+    base_url: https://api.deepseek.com
+    models:
+      - id: deepseek-chat
+        litellm_model: deepseek/deepseek-chat
+        input_cost_per_m: 0.27
+        output_cost_per_m: 1.10
+
+  google:
+    enabled: false
+    api_key_env: GOOGLE_API_KEY
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai
+    models:
+      - id: google-gemini-flash
+        litellm_model: google/gemini-2.0-flash
+        input_cost_per_m: 0.0
+        output_cost_per_m: 0.0
+
+  ollama:
+    enabled: false
+    base_url_env: OLLAMA_BASE_URL
+    models:
+      - id: ollama-qwen-coder
+        litellm_model: ollama/qwen3-coder
+
+routing:
+  mode: free_only
+  primary: cloudflare-glm-47-flash
+  fallbacks:
+    - cloudflare-gpt-oss-20b
+    - groq-gpt-oss-20b
+  by_alias:
+    claude-haiku-4-20250514: cloudflare-glm-47-flash
+    claude-sonnet-4-20250514: cloudflare-glm-47-flash
+    claude-opus-4-20250514: cloudflare-glm-47-flash
+  claude_aliases:
+    - claude-opus-4-20250514
+    - claude-sonnet-4-20250514
+    - claude-haiku-4-20250514
+    - claude-sonnet-4-0
+    - claude-haiku-4-0
+    - claude-opus-4-0
+
+handoff:
+  enabled: true
+  limit_patterns: []
+
+claude_code:
+  default_model: claude-sonnet-4-20250514
+  subagent_model: claude-haiku-4-20250514
+  effort_level: low

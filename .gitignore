@@ -1,0 +1,18 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+config/localbot.yaml
+.localbot/
+*.egg-info/
+dist/
+build/
+.DS_Store
+
+# local dev / AI artifacts (not for the repo)
+CLAUDE.md
+plan.md
+.cursor/
