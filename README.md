@@ -11,6 +11,8 @@ cloudai doctor         # verify keys, proxy, Claude Code
 cloudai                # start chatting
 ```
 
+Requires [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) and at least one provider API key (Cloudflare or Groq recommended).
+
 From source:
 
 ```bash
