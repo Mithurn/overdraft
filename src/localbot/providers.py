@@ -82,6 +82,6 @@ def upstream_headers(backend: dict[str, Any], session_affinity: str | None = Non
     if backend["provider"] == "cloudflare" and session_affinity:
         headers["x-session-affinity"] = session_affinity
     if backend["provider"] == "openrouter":
-        headers["HTTP-Referer"] = "https://github.com/Mithurn/localbot"
+        headers["HTTP-Referer"] = "https://github.com/Mithurn/overdraft"
         headers["X-Title"] = "overdraft"
     return headers

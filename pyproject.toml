@@ -40,9 +40,9 @@ overdraft = "localbot.cli:main"
 localbot = "localbot.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/Mithurn/localbot"
-Repository = "https://github.com/Mithurn/localbot"
-Issues = "https://github.com/Mithurn/localbot/issues"
+Homepage = "https://github.com/Mithurn/overdraft"
+Repository = "https://github.com/Mithurn/overdraft"
+Issues = "https://github.com/Mithurn/overdraft/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

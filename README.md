@@ -18,8 +18,8 @@ Requires [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) and a
 From source:
 
 ```bash
-git clone https://github.com/Mithurn/localbot.git
-cd localbot
+git clone https://github.com/Mithurn/overdraft.git
+cd overdraft
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 overdraft setup
