@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cloudai"
-version = "0.3.0"
+version = "0.3.1"
 description = "When Claude Code runs out, keep the same conversation on your free backends"
 readme = "README.md"
 license = "MIT"
@@ -15,18 +15,12 @@ classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-
-[project.urls]
-Homepage = "https://github.com/Mithurn/localbot"
-Repository = "https://github.com/Mithurn/localbot"
-Issues = "https://github.com/Mithurn/localbot/issues"
 dependencies = [
   "httpx>=0.27",
   "litellm[proxy]>=1.60",
@@ -44,6 +38,11 @@ dev = [
 [project.scripts]
 cloudai = "localbot.cli:main"
 localbot = "localbot.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Mithurn/localbot"
+Repository = "https://github.com/Mithurn/localbot"
+Issues = "https://github.com/Mithurn/localbot/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
