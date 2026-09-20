@@ -90,5 +90,5 @@ def test_build_handoff_markdown(tmp_path: Path):
     )
     _write_turn(session.path, "user", "goal")
     markdown = build_handoff_markdown(session, tmp_path)
-    assert "CloudAI session handoff" in markdown
+    assert "overdraft session handoff" in markdown
     assert "goal" in markdown

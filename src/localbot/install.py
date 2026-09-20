@@ -13,11 +13,11 @@ def install_service() -> None:
     local_bin = Path.home() / ".local" / "bin"
     local_bin.mkdir(parents=True, exist_ok=True)
 
-    cloudai_script = _cloudai_script_path()
-    target = local_bin / "cloudai"
+    overdraft_script = _overdraft_script_path()
+    target = local_bin / "overdraft"
     target.unlink(missing_ok=True)
-    if cloudai_script:
-        target.symlink_to(cloudai_script)
+    if overdraft_script:
+        target.symlink_to(overdraft_script)
     else:
         target.write_text(
             "#!/bin/sh\n"
@@ -44,11 +44,11 @@ def install_service() -> None:
     print(f"Background proxy enabled via {LAUNCHD_PLIST_PATH}")
 
 
-def _cloudai_script_path() -> Path | None:
-    found = shutil.which("cloudai")
+def _overdraft_script_path() -> Path | None:
+    found = shutil.which("overdraft")
     if found:
         return Path(found)
-    repo_script = Path(__file__).resolve().parents[2] / "cloudai"
+    repo_script = Path(__file__).resolve().parents[2] / "overdraft"
     if repo_script.exists():
         return repo_script
     return None

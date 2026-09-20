@@ -2,10 +2,10 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_BIN="$ROOT/.venv/bin/localbot"
+VENV_BIN="$ROOT/.venv/bin/overdraft"
 
 if [[ ! -x "$VENV_BIN" ]]; then
-  echo "localbot venv missing. Run:" >&2
+  echo "overdraft venv missing. Run:" >&2
   echo "  python -m venv .venv && source .venv/bin/activate && pip install -e ." >&2
   exit 1
 fi

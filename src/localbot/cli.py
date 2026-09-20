@@ -44,7 +44,7 @@ def _master_key(config_path: Path | None = None) -> tuple[object, str]:
     key = os.environ.get(config.proxy.master_key_env)
     if not key:
         raise SystemExit(
-            f"Missing {config.proxy.master_key_env}. Run: cloudai setup"
+            f"Missing {config.proxy.master_key_env}. Run: overdraft setup"
         )
     return config, key
 
@@ -61,7 +61,7 @@ def cmd_init(_: argparse.Namespace) -> None:
         return
     shutil.copy(example, target)
     print(f"Created {target}")
-    print("For installed use, prefer: cloudai setup")
+    print("For installed use, prefer: overdraft setup")
 
 
 def cmd_doctor(args: argparse.Namespace) -> None:
@@ -187,7 +187,7 @@ def cmd_run(args: argparse.Namespace) -> None:
     ensure_proxy(config, master_key)
     if not args.quiet:
         if os.environ.get("ANTHROPIC_API_KEY"):
-            print("Mode: smart (Anthropic first, CloudAI handoff on limit)", flush=True)
+            print("Mode: smart (Anthropic first, overdraft handoff on limit)", flush=True)
         else:
             print("Routing:", flush=True)
             for line in _routing_lines(config):
@@ -218,9 +218,9 @@ def cmd_claude(args: argparse.Namespace) -> None:
     if not proxy_healthy(config):
         raise SystemExit(
             "Proxy is not running. Use:\n"
-            "  cloudai\n"
+            "  overdraft\n"
             "or:\n"
-            "  cloudai run"
+            "  overdraft run"
         )
     raise SystemExit(_launch_claude(args, config, master_key))
 
@@ -246,7 +246,7 @@ def cmd_usage(args: argparse.Namespace) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="cloudai")
+    parser = argparse.ArgumentParser(prog="overdraft")
     parser.add_argument(
         "--config",
         type=Path,
@@ -283,7 +283,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("usage", help="Show spend and remaining budget")
     sub.add_parser("stop", help="Stop the background proxy")
     sub.add_parser("restart", help="Restart the background proxy")
-    sub.add_parser("install", help="Install cloudai command and background proxy")
+    sub.add_parser("install", help="Install overdraft command and background proxy")
 
     open_parser = sub.add_parser("open", help="Open a file in Cursor/VS Code at a line")
     open_parser.add_argument("location", help="Path, or path:line, or path:start-end")

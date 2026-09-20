@@ -152,7 +152,7 @@ def run_smart_claude(
         exit_code = 1
 
     if config.handoff.enabled and looks_like_limit_error(output, config):
-        print("\ncloudai: Anthropic limit detected. Continuing on free backends…")
+        print("\noverdraft: Anthropic limit detected. Continuing on free backends…")
         log_handoff("smart auto-handoff triggered")
         from localbot.proxy_manager import ensure_proxy
 

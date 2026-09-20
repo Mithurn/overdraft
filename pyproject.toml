@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cloudai"
-version = "0.3.1"
-description = "When Claude Code runs out, keep the same conversation on your free backends"
+name = "overdraft"
+version = "0.4.0"
+description = "When Claude Code runs out, keep coding on free backends"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
@@ -36,7 +36,7 @@ dev = [
 ]
 
 [project.scripts]
-cloudai = "localbot.cli:main"
+overdraft = "localbot.cli:main"
 localbot = "localbot.cli:main"
 
 [project.urls]

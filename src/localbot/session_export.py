@@ -58,7 +58,7 @@ def parse_session_messages(path: Path) -> list[tuple[str, str]]:
 def build_handoff_markdown(session: ClaudeSession, cwd: Path) -> str:
     turns = parse_session_messages(session.path)
     lines = [
-        "# CloudAI session handoff",
+        "# overdraft session handoff",
         "",
         f"- session: `{session.session_id}`",
         f"- project: `{cwd}`",

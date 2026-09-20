@@ -12,6 +12,6 @@ def test_ensure_prevhandoff_command(tmp_path: Path, monkeypatch):
     assert changed is True
     installed = tmp_path / "home" / ".claude" / "commands" / "prevhandoff.md"
     assert installed.exists()
-    assert "cloudai prevhandoff" in installed.read_text()
+    assert "overdraft prevhandoff" in installed.read_text()
     assert (tmp_path / "repo" / ".claude" / "commands" / "prevhandoff.md").exists()
     assert ensure_prevhandoff_command(tmp_path / "repo") is False

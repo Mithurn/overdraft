@@ -107,7 +107,7 @@ def write_setup(values: dict[str, str], config: dict[str, Any]) -> None:
 
 
 def run_setup() -> None:
-    print("CloudAI setup")
+    print("overdraft setup")
     print("Press Enter to skip optional providers.\n")
     values = collect_env_values()
     config = build_config(values)

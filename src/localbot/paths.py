@@ -62,7 +62,7 @@ def resolve_config_path(explicit: str | None = None) -> Path:
             return path
 
     raise FileNotFoundError(
-        "No config found. Run: cloudai setup"
+        "No config found. Run: overdraft setup"
     )
 
 

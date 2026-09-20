@@ -18,7 +18,7 @@ When the user asks to open, show, or explain part of the code:
    ```startLine:endLine:relative/path/from/repo/root
    ```
    Use the real line numbers from the file. Keep the cited block to the relevant lines only, not the whole file.
-4. Run: cloudai open relative/path:startLine-endLine
+4. Run: overdraft open relative/path:startLine-endLine
 
 Do not paste large code dumps outside the citation. Do not use cursor/code directly.
 """
